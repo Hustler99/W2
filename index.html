@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Satisfy&display=swap" rel="stylesheet">
+    <title>Forecastify</title>
+    <link rel="shortcut icon" href="img/weather-app.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg mt-3 m-4">
+        <div class="container-fluid  align-items-center">
+          <a class="navbar-brand text-white" href="#"><i class="fa-brands fa-cloudflare fa-2xl me-1"></i>  Forecastify</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <input id="searchWth" class="  m-auto search-nav" type="text" placeholder="Search city..." aria-label="Search">
+              <button id="locationBtn" class="button-nav" type="submit">
+                <i class="fa-solid fa-location-crosshairs me-3 fa-lg"></i> 
+                <span class="me-3">Current Location</span>
+              </button>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid text-white  pt-4">
+        <div class="row">
+          <div class="col-md-2 small ms-4 ">
+            <div class="">
+              <div class="title mt-3 ms-1 ">
+                <p>Now</p>
+              </div>
+              <div class="numberWeather d-flex align-items-center">
+                <p id="currentWeather" class="wc"></p>
+                <img id="imgWeather" src="" alt="">
+              </div>
+              <p id="WeatherStatus" ></p>
+              <hr>
+              <div class="details">
+                <p id="day">  </p>
+                <p id="location"> </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 ms-4 ">
+            <p class="ms-3 mt-3">Todays Highlights</p>
+            <div class="row mb-3 ">
+              <div class="col-md-6">
+                <div class="rounded-4 box">
+                  <div class="title d-flex justify-content-between align-items-center pt-3 mx-3">
+                    <p>Air Quality Index</p>
+                    <p class="symbol" >Good</p>
+                  </div>
+                  <div class="info d-flex  justify-content-between align-items-center mt-3">
+                    <i class="fa-solid fa-wind fa-2xl ms-3 mb-4 me-4"></i>
+                    <div class="wind-data" >
+                      <p>Windspeed</p>
+                      <p id="w1" ></p>
+                    </div>
+                    <div class="wind-data" >
+                      <p>Windspeed</p>
+                      <p id="w2"></p>
+                    </div>
+                    <div class="wind-data me-5" >
+                      <p>Windspeed</p>
+                      <p id="w3"></p>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mt-1">
+                <div class="box rounded-3  ">
+                  <p class="pt-3 pb-4 ms-3">Sunrise & Sunset</p>
+                  <div class="day-night d-flex ">
+                    <div class="position-relative ms-4 mb-4">
+                      <span  id="sunrise" class="ms-4 cnt "> <i class="fa-solid fa-sun fa-2xl me-3"></i> </span>
+                      <p class="sunrise mb-3">Sunrise</p>
+                    </div>
+                    <div class="ms-5">
+                      <span id="sunset" class="cnt"> <i class="fa-solid fa-moon fa-2xl me-3"></i> </span>
+                    <p class="sunset">Sunset</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box rounded-3 mt-3 text-clr2">
+                  <p class="pt-3 ms-3 text-clr">Humidity</p>
+                  <div class="content d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-feather ms-2 fa-lg mb-3 "></i>
+                    <p id="humidity" class="me-2 "></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box rounded-3 mt-3 text-clr2">
+                  <p class="pt-3 ms-3 text-clr">Pressure</p>
+                  <div class="content d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-feather ms-2 fa-lg mb-3 "></i>
+                    <p   id="pressure" class="me-2 "></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box rounded-3 mt-3 text-clr2">
+                  <p class="pt-3 ms-3 text-clr">Feels Like</p>
+                  <div class="content d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-feather ms-2 fa-lg mb-3 "></i>
+                    <p id="feels" class="me-2 "></p>
+                  </div>
+                </div>
+              </div>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container ms-4 mt-3">
+        <div class="row">
+            <div class="col-md-3 box text-clr2 forcast rounded-3  ">
+                <div class="content d-flex justify-content-between align-items-center mt-3">
+                    <p id="f1"></p>
+                    <p id="dd1"></p>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                    <p id="f2"></p>
+                    <p id="dd2"></p>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                    <p id="f3"></p>
+                    <p id="dd3"></p>
+                </div>
+                <div class="content d-flex justify-content-between align-items-center">
+                    <p id="f4"></p>
+                    <p id="dd4"></p>
+                </div>
+
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h1" >12 AM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww1">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h2">2 AM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww2">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h3">4 AM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww3">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h4">6 AM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww4">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h5">9 AM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww5">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h6">12 PM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww6">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h7">2 PM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww7">5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h8">4 PM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww8"> 5°c</p>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="boxaya">
+                <p id="h9">6 PM</p>
+                <i class="fa-solid fa-temperature-quarter fa-2xl mb-4"></i>
+                <p id="ww9">5°c</p>
+              </div>
+            </div>
+            
+
+            
+        </div>
+    </div>
+    
+<footer class="mt-2">
+<div class="footer">
+  <p class="mt-2">Copyright &copy; 2024</p>
+</div>
+</footer>
+     
+
+      <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
